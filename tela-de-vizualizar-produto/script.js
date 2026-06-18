@@ -1,48 +1,37 @@
 'use strict';
 
-const API_URL =
-    'http://localhost:8081/v1/vibecoffee/produto';
+const API_URL = 'http://localhost:8081/v1/vibecoffee/produto';
 
-const params =
-    new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
-const idProduto =
-    Number(params.get('id'));
+const idProduto = Number(params.get('id'));
+const tcIdInicial = Number(params.get('tcId'));
 
-document.addEventListener(
-    'DOMContentLoaded',
-    carregarProduto
-);
+let categoriasProduto = [];
+
+document.addEventListener('DOMContentLoaded', carregarProduto);
 
 async function carregarProduto() {
 
     try {
 
-        const response =
-            await fetch(API_URL);
+        const response = await fetch(API_URL);
 
         if (!response.ok) {
-            throw new Error(
-                'Erro ao buscar produtos'
-            );
+            throw new Error('Erro ao buscar produtos');
         }
 
-        const dados =
-            await response.json();
+        const dados = await response.json();
 
-        const produtos =
-            dados.response.produto;
+        const produtos = dados.response.produto;
 
-        const produto =
-            produtos.find(
-                p => Number(p.id) === idProduto
-            );
+        const produto = produtos.find(
+            item => Number(item.id) === idProduto
+        );
 
         if (!produto) {
 
-            document.getElementById(
-                'productTitle'
-            ).textContent =
+            document.getElementById('productTitle').textContent =
                 'Produto não encontrado';
 
             return;
@@ -50,74 +39,102 @@ async function carregarProduto() {
 
         preencherTela(produto);
 
-    } catch (erro) {
+    } catch (error) {
 
-        console.error(
-            'Erro:',
-            erro
-        );
+        console.error(error);
 
-        document.getElementById(
-            'productTitle'
-        ).textContent =
+        document.getElementById('productTitle').textContent =
             'Erro ao carregar produto';
     }
 }
 
 function preencherTela(produto) {
 
-    document.getElementById(
-        'productTitle'
-    ).textContent =
+    document.getElementById('productTitle').textContent =
         produto.nome;
 
-    document.getElementById(
-        'productDesc'
-    ).textContent =
+    document.getElementById('productDesc').textContent =
         produto.descricao;
 
-    const preco =
-        produto.tipo_categoria?.[0]?.preco
-        ?? 0;
+    categoriasProduto =
+        produto.tipo_categoria ?? [];
 
-    document.getElementById(
-        'unitPrice'
-    ).textContent =
-        Number(preco)
-        .toLocaleString(
-            'pt-BR',
-            {
-                style: 'currency',
-                currency: 'BRL'
-            }
-        );
+    atualizarStatus(produto.status);
 
-    atualizarStatus(
-        produto.status
-    );
+    carregarImagem(produto.foto);
 
-    configurarTipo(
-        produto.tipo_categoria?.[0]?.id_tipo
-    );
+    criarTipos();
+}
 
-    carregarImagem(
-        produto.foto
-    );
+function criarTipos() {
+
+    const tempRow =
+        document.getElementById('tempRow');
+
+    tempRow.replaceChildren();
+
+    categoriasProduto.forEach((tipoCategoria, index) => {
+
+        const button =
+            document.createElement('button');
+
+        button.classList.add('temp-btn');
+
+        button.textContent =
+            tipoCategoria.tipo;
+
+        button.addEventListener('click', () => {
+
+            document
+                .querySelectorAll('.temp-btn')
+                .forEach(btn =>
+                    btn.classList.remove('active')
+                );
+
+            button.classList.add('active');
+
+            document.getElementById('unitPrice').textContent =
+                Number(tipoCategoria.preco)
+                    .toLocaleString(
+                        'pt-BR',
+                        {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }
+                    );
+        });
+
+        tempRow.appendChild(button);
+
+        if (
+            tcIdInicial &&
+            Number(tipoCategoria.id) === tcIdInicial
+        ) {
+            setTimeout(() => button.click(), 0);
+        }
+
+        if (
+            index === 0 &&
+            !tcIdInicial
+        ) {
+            setTimeout(() => button.click(), 0);
+        }
+    });
 }
 
 function atualizarStatus(status) {
 
     const dot =
-        document.getElementById(
-            'statusDot'
-        );
+        document.getElementById('statusDot');
 
     const text =
-        document.getElementById(
-            'statusText'
-        );
+        document.getElementById('statusText');
 
-    if (Number(status) === 1) {
+    if (
+        status === true ||
+        status === 1 ||
+        status === '1'
+    ) {
 
         dot.className =
             'status-dot available';
@@ -141,77 +158,13 @@ function atualizarStatus(status) {
     }
 }
 
-function configurarTipo(idTipo) {
-
-    const quente =
-        document.getElementById(
-            'btnQuente'
-        );
-
-    const gelado =
-        document.getElementById(
-            'btnGelado'
-        );
-
-    quente.classList.remove(
-        'active'
-    );
-
-    gelado.classList.remove(
-        'active'
-    );
-
-    if (Number(idTipo) === 1) {
-        quente.classList.add(
-            'active'
-        );
-    }
-
-    if (Number(idTipo) === 2) {
-        gelado.classList.add(
-            'active'
-        );
-    }
-}
-
 function carregarImagem(nomeArquivo) {
 
     const img =
-        document.getElementById(
-            'mainImg'
-        );
+        document.getElementById('mainImg');
 
-    if (nomeArquivo) {
-
-        img.src =
-            `img/${nomeArquivo}`;
-
-    } else {
-
-        img.src =
-            'img/default.png';
-    }
-}
-
-function selectTemp(temp) {
-
-    const quente =
-        document.getElementById(
-            'btnQuente'
-        );
-
-    const gelado =
-        document.getElementById(
-            'btnGelado'
-        );
-
-    quente.classList.toggle(
-        'active',
-        temp === 'quente'
-    );
-
-    gelado.classList.toggle(
-        'active',
-        temp === 'gelado'
-    );
+    img.src =
+        nomeArquivo
+            ? `img/${nomeArquivo}`
+            : 'img/default.png';
 }
