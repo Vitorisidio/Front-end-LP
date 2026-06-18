@@ -1,0 +1,33 @@
+/* interacoes.css */
+
+/* Menu ativo */
+.menu button.ativo {
+    color: #FF00CC;
+    font-weight: 700;
+
+    text-shadow:
+        0 0 3px rgba(255, 0, 204, 0.8),
+        0 0 8px rgba(255, 0, 204, 0.6),
+        0 0 14px rgba(255, 0, 204, 0.4);
+}
+
+/* Hover dos botões */
+.menu button:hover {
+    background-color: rgba(255, 0, 204, 0.2);
+}
+
+/* Card do produto */
+.card-produto:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 10px #FF00CC,
+        0 0 20px #FF00CC;
+
+    transition: 0.3s;
+}
+
+/*BOTÃO VER MAIS*/
+.oculto {
+    display: none;
+}

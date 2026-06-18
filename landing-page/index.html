@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./rest.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./segundaSessao.css">
+    <link rel="stylesheet" href="./interacoes.css">
+
+    <script type="module" src="./app.js"></script>
+    <title>Vibe Coffee</title>
+</head>
+
+<body>
+
+    <!-- PRIMEIRA SEÇÃO -->
+    <section id="home" class="home-bg">
+
+        <header>
+            <div class="cabecalho-principal">
+
+                <img src="img/logo.png" alt="logo vibe coffee">
+
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#cardapio">CARDÁPIO</a></li>
+                    <li><a href="#sobre">SOBRE</a></li>
+                    <li><a href="#contato">CONTATO</a></li>
+                </ul>
+
+                <div class="desde-1980">
+                    <img src="img/icone de café.png" alt="">
+                    <p>DESDE 1980</p>
+                </div>
+
+            </div>
+        </header>
+
+        <main>
+            <div class="home-principal">
+
+                <div class="lado-esquerdo">
+                    <p class="texto-principal">CAFÉ, CULTURA E</p>
+
+                    <p class="texto-secundario">NOSTALGIA</p>
+
+                    <p class="texto-resumo">
+                        inspirado nos anos 80
+                        feito para o agora
+                        Vem viver essa
+                        experiência
+                    </p>
+
+                    <a href="#cardapio">
+                        <button class="botao-cardapio">
+                            <p>conheça o cardápio</p>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="lado-direito">
+
+                    <img class="copo-cafe" src="img/copo de café.png" alt="">
+
+                    <div class="icones-laterais">
+
+                        <a href="#cardapio">
+                            <div class="item-cafe">
+                                <button class="circulo-cafe">
+                                    <img class="icone-cafe" src="img/café icon 1.png" alt="">
+                                </button>
+                                <p>café</p>
+                            </div>
+                        </a>
+
+                        <a href="#cardapio">
+                            <div class="item-cha">
+                                <button class="circulo-cha">
+                                    <img class="icone-cha" src="img/chá icon 1.png" alt="">
+                                </button>
+                                <p>chá</p>
+                            </div>
+                        </a>
+
+                        <a href="#cardapio">
+                            <div class="item-doce">
+                                <button class="circulo-doce">
+                                    <img class="icone-doce" src="img/cupcake icon 1.png" alt="">
+                                </button>
+                                <p>doce</p>
+                            </div>
+                        </a>
+
+                        <a href="#cardapio">
+                            <div class="item-drinks">
+                                <button class="circulo-drinks">
+                                    <img class="icone-drinks" src="img/milkshake icon 1.png" alt="">
+                                </button>
+                                <p>drinks</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </section>
+
+    <!-- SEGUNDA SEÇÃO (ONDE API VAI SER UTILIZADA) -->
+    <section class="segunda-sessao">
+
+        <main>
+            <!-- ---------------------------------------------------------------------------------------------------- -->
+            <!-- SESSÃO SOBRE O CARDAPIO -->
+            <div id="cardapio" class="sessao-cardapio">
+
+                <!-- TITULO DA SESSÃO -->
+                <div class="cardapio">
+                    <hr class="linha-esquerda">
+                    <img src="img/café icon 2.png" alt="">
+                    <p>CARDÁPIO</p>
+                    <hr class="linha-direita">
+                </div>
+
+                <!-- FILTRO PARA CATEGORIA -->
+                <div class="menu-container">
+
+                    <button id="seta-esquerda" class="seta">
+                        &lt;
+                    </button>
+
+                    <!-- CATEGORIAS SERÃO CRIADAS PELO JS -->
+                    <div class="menu"></div>
+
+                    <button id="seta-direita" class="seta">
+                        &gt;
+                    </button>
+
+                </div>
+
+                <!-- PRODUTOS VIRÃO DA API -->
+                <div class="container-card"></div>
+
+                <!-- BOTÃO VER TUDO -->
+                <button id="ver-tudo" class="ver-tudo">
+                    VER TUDO
+                </button>
+
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------- -->
+            <!-- SESSÃO SOBRE NÓS -->
+            <div id="sobre" class="sessao-sobre-nos">
+                <!-- NOME DA SESSÃO -->
+                <div class="sobre-nos">
+                    <hr class="linha-esquerda">
+                    <p>SOBRE NÓS</p>
+                    <hr class="linha-direita">
+                </div>
+
+                <!-- SESSÃO SOBRE NÓS LADO ESQUERDO E DIREITO -->
+                <div class="descricao-sobre-nos">
+
+                    <!-- LADO ESQUERDO -->
+                    <div class="lado-esquerdo-sobre-nos">
+                        <img src="img/img vibeCoffee.png" alt="">
+                    </div>
+
+                    <!-- LADO DIREITO -->
+                    <div class="lado-direito-sobre-nos">
+
+                        <p class="titulo-um">MAIS QUE CAFÉ,</p>
+
+                        <p class="titulo-dois"> UMA EXPERIÊNCIA.</p>
+
+                        <p class="descricao-sobre-nos">
+                            Inspirada na cultura retrowave, a Vibe
+                            Coffee combina o sabor do café artesanal
+                            com a energia visual dos anos 80.
+                            Entre luzes neon, atmosferas nostálgicas e boas
+                            lembranças, criamos um espaço único
+                            para quem busca mais do que uma
+                            simples cafeteria.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------- -->
+            <!-- POR QUE ESCOLHER A VIBE COFFEE? -->
+
+            <div class="sessao-porque-escolher-vibe-coffee">
+
+                <!-- NOME DA SESSÃO -->
+                <div class="porque-escolher-vibe-coffee">
+                    <hr class="linha-esquerda">
+                    <p>POR QUE ESCOLHER A VIBE COFFEE?</p>
+                    <hr class="linha-direita">
+                </div>
+
+                <!-- CONTAINER DOS CARDS DE MOTIVOS -->
+                <div class="container-motivos">
+
+                    <!-- CONTAINER DOS CARDS DE MOTIVOS -->
+                    <div class="card-motivos">
+                        <img class="carro" src="img/carro icon 1.png" alt="">
+
+                        <p class="card-motivos-titulo">ENTREGA RÁPIDA</p>
+
+                        <p class="card-motivos-descricao">
+                            Receba seu pedido com
+                            agilidade e segurança
+                            no conforto da sua casa.</p>
+                    </div>
+
+                    <div class="card-motivos">
+                        <img class="cafes" src="img/cafés icon 1.png" alt="">
+
+                        <p class="card-motivos-titulo">CAFÉ ARTESANAL</p>
+
+                        <p class="card-motivos-descricao">
+                            Bebidas feitas com cuidado
+                            e técnicas especiais para
+                            ressaltar cada aroma
+                        </p>
+                    </div>
+
+                    <div class="card-motivos">
+                        <img class="musica" src="img/musica icon 1.png" alt="">
+
+                        <p class="card-motivos-titulo">AMBIENTE RETRÔ</p>
+
+                        <p class="card-motivos-descricao">Uma atmosfera inspirada
+                            nos anos 80 para você
+                            relaxar e aproveitar.
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- ---------------------------------------------------------------------------------------------------- -->
+            <!-- NOSSO ESPAÇO -->
+            <div class="sessao-nosso-espaco">
+
+                <!-- NOME DA SESSÃO -->
+                <div class="nosso-espaco">
+                    <hr class="linha-esquerda">
+                    <p>NOSSO ESPAÇO</p>
+                    <hr class="linha-direita">
+                </div>
+
+                <!-- CONTAINER FOTOS DO LOCAL -->
+                <div class="container-fotos-local">
+                    <div class="fotos-local"></div>
+
+                    <div class="fotos-local"></div>
+
+                    <div class="fotos-local"></div>
+
+                    <div class="fotos-local"></div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <div id="contato" class="container-info-rodape">
+
+                <img src="img/logo.png" alt="logo vibe coffee">
+
+                <div class="contribuidores">
+                    <ul>CONTRIBUIDORES
+                        <li><a href="">VITOR</a></li>
+                        <li><a href="">COSME</a></li>
+                        <li><a href="">LUCAS</a></li>
+                        <li><a href="">ENZO</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="links-rapidos">
+                    <ul>LINKS RÁPIDOS
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#cardapio">CARDÁPIO</a></li>
+                        <li><a href="#sobre">SOBRE NÓS</a></li>
+                        <li><a href="#contato">CONTATO</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="contato">
+                    <ul>CONTATO
+                        <li>(11)91234-5678</li>
+                        <li>vibecoffee@gmail.com</li>
+                        <li>Rua Marcelo leonidas, 80 São paulo - SP</li>
+                    </ul>
+                </div>
+
+                <div class="horarios">
+                    <ul>HORARIOS
+                        <li>seg a sex 08h as 20h</li>
+                        <li>sab 10h as 20h</li>
+                        <li>dom 10h as 18h</li>
+                    </ul>
+                </div>
+
+            </div>
+        </footer>
+
+    </section>
+
+
+
+</body>
+
+</html>
