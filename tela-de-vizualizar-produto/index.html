@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vibe Coffee - Produto</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CORRIGIDO -->
+    <script src="script.js" defer></script>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="cabecalho-principal">
+
+            <img src="img/logo (1).png" alt="logo">
+
+            <ul>
+                <li>
+                    <a href="../landing-page/index.html">
+                        HOME
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../landing-page/index.html#cardapio">
+                        CARDÁPIO
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../landing-page/index.html#sobre">
+                        SOBRE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../landing-page/index.html#contato">
+                        CONTATO
+                    </a>
+                </li>
+            </ul>
+
+            <div class="desde-1980">
+                <img
+                    src="img/icone de café.png"
+                    alt=""
+                >
+
+                <p>DESDE 1980</p>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="product">
+
+        <div class="img-col">
+
+            <div class="img-wrap">
+                <img
+                    id="mainImg"
+                    src=""
+                    alt="Produto"
+                >
+            </div>
+
+        </div>
+
+        <div class="info-col">
+
+            <h1
+                class="product-title"
+                id="productTitle"
+            ></h1>
+
+            <p
+                class="product-desc"
+                id="productDesc"
+            ></p>
+
+            <div class="status-row">
+
+                <span>Produto:</span>
+
+                <div
+                    class="status-dot"
+                    id="statusDot"
+                ></div>
+
+                <span
+                    class="status-label"
+                    id="statusText"
+                ></span>
+
+            </div>
+
+            <p
+                class="price"
+                id="unitPrice"
+            ></p>
+
+            <div class="temp-row">
+
+                <button
+                    class="temp-btn"
+                    id="btnQuente"
+                    onclick="selectTemp('quente')"
+                >
+                    ☕ Café quente
+                </button>
+
+                <button
+                    class="temp-btn"
+                    id="btnGelado"
+                    onclick="selectTemp('gelado')"
+                >
+                    🧊 Café gelado
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
