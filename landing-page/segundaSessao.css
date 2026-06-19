@@ -146,8 +146,10 @@ hr {
 }
 
 .foto-produto img {
-    width: 6.3vw;
-    height: 12vh;
+    max-width: 100%;
+    width: 17.3vw;
+    height: 21vh;
+    border-radius: 25px 25px 0px 0px;
 }
 
 .nome-produto {
