@@ -282,19 +282,23 @@ function renderizarProdutos(produtos) {
 
         const imagem = document.createElement('img');
 
-        // Se existir foto
         if (produto.foto) {
-
-            imagem.src = `img/${produto.foto}`;
-
+            // Se começar com http (Cloudinary), usa a URL direta. Se não, busca localmente.
+            imagem.src = produto.foto.startsWith('http') 
+                ? produto.foto 
+                : `img/${produto.foto}`;
         } else {
-
             // Imagem padrão
             imagem.src = 'img/default.png';
         }
 
         // Texto alternativo da imagem
         imagem.alt = produto.nome;
+
+        // Trata erro caso a imagem local antiga falhe
+        imagem.onerror = function() {
+            this.src = 'img/default.png';
+        };
 
         // Coloca imagem dentro do container
         fotoContainer.appendChild(imagem);
