@@ -385,6 +385,14 @@ hr {
 
     border-radius: 1.74vw;
 }
+
+.fotos-local img {
+    display: flex;
+    width: 17.32vw;
+    height: 26.1vh;
+
+    border-radius: 1.74vw;
+}
 /* ---------------- FIM DA SESSÃO NOSSO ESPAÇO ---------------- */
 
 /* ---------------- RODAPÉ ---------------- */
